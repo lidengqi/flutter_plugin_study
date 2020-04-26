@@ -1,6 +1,5 @@
 package com.ldq.flutterpluginstudy;
 
-import android.support.annotation.NonNull;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -11,7 +10,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 /** FlutterpluginstudyPlugin */
 public class FlutterpluginstudyPlugin implements FlutterPlugin, MethodCallHandler {
   @Override
-  public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
+  public void onAttachedToEngine(FlutterPluginBinding flutterPluginBinding) {
     final MethodChannel channel = new MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "flutterpluginstudy");
     channel.setMethodCallHandler(new FlutterpluginstudyPlugin());
   }
@@ -31,7 +30,7 @@ public class FlutterpluginstudyPlugin implements FlutterPlugin, MethodCallHandle
   }
 
   @Override
-  public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
+  public void onMethodCall(MethodCall call, Result result) {
     if (call.method.equals("getPlatformVersion")) {
       result.success("Android " + android.os.Build.VERSION.RELEASE);
     } else if (call.method.equals("calculate")) {
@@ -45,6 +44,6 @@ public class FlutterpluginstudyPlugin implements FlutterPlugin, MethodCallHandle
   }
 
   @Override
-  public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+  public void onDetachedFromEngine(FlutterPluginBinding binding) {
   }
 }
