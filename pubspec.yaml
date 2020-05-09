@@ -1,8 +1,8 @@
 name: flutterpluginstudy
 description: A new Flutter plugin.
 version: 0.0.1
-author:
-homepage:
+author: lidengqi7@126.com
+homepage: https://github.com/lidengqi/flutter_plugin_study
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
