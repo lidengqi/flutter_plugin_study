@@ -44,6 +44,12 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  Future<void> _incrementCounter() async {
+    _calculateResult = await Flutterpluginstudy.calculate(_calculateResult, 10);
+    setState(() {
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -51,16 +57,19 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Container(
-          padding: EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Text('Running on: $_platformVersion\n'),
-                Text('Calculate Result: $_calculateResult\n')
-              ],
-            ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('Running on: $_platformVersion\n'),
+              Text('Calculate Result: $_calculateResult\n')
+            ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: "Increment",
+          child: Icon(Icons.add),
         ),
       ),
     );
